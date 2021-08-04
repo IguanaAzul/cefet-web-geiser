@@ -1,5 +1,6 @@
 // importação de dependência(s)
 import express from 'express';
+import { readFile } from 'fs/promises'
 const app = express();
 
 // variáveis globais deste módulo
@@ -10,13 +11,13 @@ const db = {}
 // carregar "banco de dados" (data/jogadores.json e data/jogosPorJogador.json)
 // você pode colocar o conteúdo dos arquivos json no objeto "db" logo abaixo
 // dica: 1-4 linhas de código (você deve usar o módulo de filesystem (fs))
-
-
-
+db.jogadores = JSON.parse(await readFile('server/data/jogadores.json'));
+console.log(db.jogadores);
+db.jogosPorJogador = JSON.parse(await readFile('server/data/jogosPorJogador.json'));
 
 // configurar qual templating engine usar. Sugestão: hbs (handlebars)
-//app.set('view engine', '???qual-templating-engine???');
-//app.set('views', '???caminho-ate-pasta???');
+app.set('view engine', 'hbs');
+app.set('views', 'server/views');
 // dica: 2 linhas
 
 
@@ -25,7 +26,9 @@ const db = {}
 // dados do banco de dados "data/jogadores.json" com a lista de jogadores
 // dica: o handler desta função é bem simples - basta passar para o template
 //       os dados do arquivo data/jogadores.json (~3 linhas)
-
+app.get('/', (req, res) => {
+    res.render('index.hbs', db.jogadores, (err, html) => {res.send(html);});
+});
 
 
 // EXERCÍCIO 3
