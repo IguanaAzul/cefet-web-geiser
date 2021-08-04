@@ -1,0 +1,26 @@
+{
+  "name": "geiser",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "cefet-web-geiser",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IguanaAzul/cefet-web-geiser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IguanaAzul/cefet-web-geiser/issues"
+  },
+  "homepage": "https://github.com/IguanaAzul/cefet-web-geiser#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

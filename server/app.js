@@ -1,5 +1,6 @@
 // importação de dependência(s)
-
+import express from 'express';
+const app = express();
 
 // variáveis globais deste módulo
 const PORT = 3000
@@ -37,7 +38,8 @@ const db = {}
 // EXERCÍCIO 1
 // configurar para servir os arquivos estáticos da pasta "client"
 // dica: 1 linha de código
-
+app.use(express.static('client'));
 
 // abrir servidor na porta 3000 (constante PORT)
 // dica: 1-3 linhas de código
+app.listen(PORT);
